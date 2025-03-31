@@ -1,10 +1,8 @@
 import fs from 'fs';
-import { MatchRecordIndices, MatchData, MATCH_RESULT } from './MatchData';
 import { MatchReader } from './MatchReader';
-import { CsvFileReader } from './CsvFileReader';
 import { Summary } from './Summary';
+import { MatchData } from './MatchData';
 
-const reader = new MatchReader(new CsvFileReader('football.csv'));
-let matchData: MatchData[] = reader.load();
-let htmlSummary = Summary.withHTMLReport('Aston Villa');
+let matchData: MatchData[] = MatchReader.withCsvReader('football.csv').load();
+let htmlSummary = Summary.withHTMLReport('Arsenal');
 htmlSummary.buildAndPrintReport(matchData);

@@ -13,7 +13,7 @@ export interface OutputTarget {
 export class Summary {
   static withHTMLReport(team: string): Summary {
     return new Summary(
-      new WinAnalyzer('Arsenal'),
+      new WinAnalyzer(team),
       new HTMLOutputTarget('./output.html')
     );
   }

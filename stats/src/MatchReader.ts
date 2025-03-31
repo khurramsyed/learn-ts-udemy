@@ -1,8 +1,12 @@
 import { MatchData } from './MatchData';
 import { MATCH_RESULT } from './MatchData';
-import { DataReader } from './CsvFileReader';
+import { CsvFileReader, DataReader } from './CsvFileReader';
 
 export class MatchReader {
+  static withCsvReader(filename: string): MatchReader {
+    return new MatchReader(new CsvFileReader(filename));
+  }
+
   constructor(public reader: DataReader) {}
 
   load(): MatchData[] {
